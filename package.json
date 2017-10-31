@@ -1,0 +1,16 @@
+{
+  "name": "node_chat_server",
+  "version": "1.0.0",
+  "description": "Simple Node Chat Server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Satheesh Kumar D",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}
