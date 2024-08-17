@@ -1,0 +1,22 @@
+{
+  "name": "horixon",
+  "version": "1.0.0",
+  "description": "backend server for horixon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heimatverse/Horixon.git"
+  },
+  "author": "Mukal Dadhwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heimatverse/Horixon/issues"
+  },
+  "homepage": "https://github.com/heimatverse/Horixon#readme",
+  "dependencies": {
+    "peerjs": "^1.5.4"
+  }
+}
