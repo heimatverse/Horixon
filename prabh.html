@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerJS Client</title>
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+    <h1>Prabhsurat ki Chat</h1>
+
+    <input type="text" id="message" placeholder="Enter message">
+    <button id="send-btn">Send Message</button>
+
+    <div id="messages"></div>
+
+    <br />
+    <h1>Video :-</h1>
+    <video id="local-video"></video>
+
+    <script>
+        const peer = new Peer('prabh', {
+            host: "localhost",
+            port: 9000,
+            path: "/myapp",
+            pingInterval: 5000,
+
+        });
+
+        let peerConn;
+
+
+        peer.on('connection', (conn) => {
+            peerConn = conn
+            conn.on('open', () => {
+                console.log('connection is open');
+
+                // conn.send('hello buddy');
+
+            });
+
+
+            conn.on('data', (data) => {
+                console.log('Received', data);
+                displayMessage('Received', data);
+            });
+        });
+
+        function setLocalStream(stream) {
+
+            let video = document.getElementById("local-video");
+            video.srcObject = stream;
+            video.muted = true;
+            video.play();
+        }
+
+        function displayMessage(type, message) {
+            const messagesDiv = document.getElementById('messages');
+            const newMessage = document.createElement('p');
+            newMessage.textContent = `${type}: ${message}`;
+            messagesDiv.appendChild(newMessage);
+        }
+
+        var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        peer.on('call', function (call) {
+            getUserMedia({ video: true, audio: true }, function (stream) {
+                call.answer(stream); // Answer the call with an A/V stream.
+                call.on('stream', function (remoteStream) {
+                    console.log('streaming mukals video');
+                    setLocalStream(remoteStream);
+                });
+            }, function (err) {
+                console.log('Failed to get local stream', err);
+            });
+        });
+
+        // Send a message to the connected peer
+        document.getElementById('send-btn').addEventListener('click', () => {
+            const message = document.getElementById('message').value;
+            if (peerConn) {
+                peerConn.send(message);
+            } else {
+                console.error('Connection is not open');
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>

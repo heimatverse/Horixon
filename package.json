@@ -2,9 +2,10 @@
   "name": "horixon",
   "version": "1.0.0",
   "description": "backend server for horixon",
-  "main": "index.js",
+  "main": "nodemon index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/heimatverse/Horixon#readme",
   "dependencies": {
+    "express": "^4.19.2",
+    "jade": "^1.11.0",
+    "nodemon": "^3.1.4",
+    "peer": "^1.0.2",
     "peerjs": "^1.5.4"
   }
 }
