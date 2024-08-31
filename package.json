@@ -4,13 +4,18 @@
   "description": "Simple Node Chat Server",
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "watch": "nodemon app.js script.js room.ejs join_room.ejs create.ejs"
   },
   "author": "Satheesh Kumar D",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^2.5.7",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
     "express": "^4.16.2",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^3.0.1"
   }
 }
