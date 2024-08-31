@@ -36,7 +36,7 @@ navigator.mediaDevices
     socket.on("msg", (userId) => {
       // If a new user connect
       console.log("userid", userId);
-      // connectToNewUser(userId, stream);
+      connectToNewUser(userId, stream);
     });
     // socket.on("user-connected", (userId) => {
     //   // If a new user connect
@@ -53,7 +53,6 @@ myPeer.on("open", (peerId) => {
 });
 
 function connectToNewUser(userId, stream) {
-  console.log(userId);
   // This runs when someone joins our room
   const call = myPeer.call(userId, stream); // Call the user who just joined
   // Add their video
