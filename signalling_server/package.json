@@ -1,0 +1,29 @@
+{
+  "name": "face-emotion-recognition",
+  "version": "1.0.0",
+  "description": "Face emotion recognition using TensorFlowJS",
+  "main": "signalling.js",
+  "scripts": {
+    "start": "node signalling.js",
+    "dev": "nodemon signalling.js -L -e js, html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "getusermedia": "^2.0.1",
+    "nanoid": "^5.0.7",
+    "path": "^0.12.7",
+    "screen-record": "^1.0.1",
+    "socket.io": "^4.7.5",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

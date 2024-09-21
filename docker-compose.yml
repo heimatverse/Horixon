@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  python-server:
+    build:
+      context: ./python_server
+      dockerfile: Dockerfile # Assuming your Dockerfile is in the current directory
+    ports:
+      - "9100:9100"
+    volumes:
+      - ./logs:/app/logs # Map the logs directory on the host to the container
+    networks:
+      - app-network
+    environment:
+      - LOG_FILE=/app/logs/app_logs.log # Set the logfile location if required
+    restart: unless-stopped
+
+  javascript-server:
+    build:
+      context: ./signalling_server
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+
+  # coturn:
+  #   image: coturn/coturn
+  #   network_mode: host # use host network
+  #   volumes:
+  #     - ./turnserver.conf:/etc/coturn/turnserver.conf # bind mount the configuration file
+  #   restart: unless-stopped # optional: to automatically restart the container
+
+networks:
+  app-network:
+    driver: bridge
