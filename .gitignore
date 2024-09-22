@@ -1,1 +1,3 @@
 signalling_server/node_modules
+logs/
+python_server/logs

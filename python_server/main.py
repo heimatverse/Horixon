@@ -382,4 +382,4 @@ app.add_middleware(ExceptionLoggingMiddleware)
 
 if __name__ == "__main__":
     setup_logging()
-    uvicorn.run(app, host="0.0.0.0", port=9100)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

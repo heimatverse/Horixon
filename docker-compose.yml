@@ -24,6 +24,7 @@ services:
     networks:
       - app-network
 
+  # run separately on server if required 
   # coturn:
   #   image: coturn/coturn
   #   network_mode: host # use host network
