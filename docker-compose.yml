@@ -25,12 +25,12 @@ services:
       - app-network
 
   # run separately on server if required 
-  coturn:
-    image: coturn/coturn
-    network_mode: host # use host network
-    volumes:
-      - ./turnserver.conf:/etc/coturn/turnserver.conf # bind mount the configuration file
-    restart: unless-stopped # optional: to automatically restart the container
+  # coturn:
+  #   image: coturn/coturn
+  #   network_mode: host # use host network
+  #   volumes:
+  #     - ./turnserver.conf:/etc/coturn/turnserver.conf # bind mount the configuration file
+  #   restart: unless-stopped # optional: to automatically restart the container
 
 networks:
   app-network:
