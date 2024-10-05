@@ -8,15 +8,16 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./logs:/app/logs # Map the logs directory on the host to the container
+      - ./python_server/logs:/app/logs # Map the logs directory on the host to the container
     networks:
       - app-network
     environment:
-      - LOG_FILE=/app/logs/app_logs.log # Set the logfile location if required
+      - LOG_FILE_1=/app/logs/app_logs.log
+      - LOG_FILE_2=/app/logs/face_data.csv # Set the logfile location if required
     restart: unless-stopped
 
   javascript-server:
-    build:
+    build:  
       context: ./signalling_server
       dockerfile: Dockerfile
     ports:

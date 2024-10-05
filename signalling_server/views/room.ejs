@@ -121,6 +121,8 @@
         setTimeout(makeOffer, 5000);
         setTimeout(makeOffer, 5000);
         // await makeOffer();
+
+        await getMediaAccess();
       });
 
       ws.addEventListener("message", async function ({ data }) {
